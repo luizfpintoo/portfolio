@@ -6,7 +6,18 @@
     <title>Portfólio</title>
 </head>
 <body>
-    <h1><?php echo "Portfólio do Luiz"; ?></h1>
-    <p><?php echo "Meu nome é Luiz Felipe e sou desenvolvedor web"; ?></p>
+    <h1>
+        <?php 
+            $nome = "Luiz";
+            $saudacao = "Olá bem vindo(a) ao portfólio do " . $nome;
+            $titulo = "Muito bom ter você aqui!!!!";
+            $ano = 2025;
+            echo $saudacao;
+        ?>
+    </h1>
+    <h2>
+        <?= $titulo . "<br>"; ?> 
+        <?= $ano; ?> 
+    </h2>
 </body>
 </html>
