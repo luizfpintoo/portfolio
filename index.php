@@ -42,6 +42,17 @@
             "descricao" => "Meu primeiro projeto escrito em PHP e HTML"
         ]
     ];
+
+    function verificarFinalizado($projeto)
+    {
+        if ($projeto["finalizado"]) {
+            return '<span class="green">Finalizado ✅</span>';
+        }else {
+            return '<span class="red">Não finalizado ⛔</span>';
+        }
+    }
+
+
     ?>
 
     <?php foreach ($projetos as $projeto): ?>
@@ -56,11 +67,7 @@
                 <?= $projeto["data"]; ?>
             </div>
             <div>
-                <?php if ($projeto["finalizado"]): ?>
-                    <span class="green">Finalizado ✅</span>
-                <?php else: ?>
-                    <span class="red">Não finalizado ⛔</span>
-                <?php endif; ?>
+                <?= verificarFinalizado($projeto); ?>
             </div>
         </div>
     <?php endforeach; ?>
