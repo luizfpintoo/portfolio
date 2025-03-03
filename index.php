@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,49 +15,55 @@
         }
     </style>
 </head>
+
 <body>
-    <?php 
-        $nome = "Luiz";
-        $saudacao = "Olá bem vindo(a) ao portfólio do " . $nome;
-        $titulo = "Muito bom ter você aqui!!!!";
-        $ano = 2025;
-        $tituloProjeto = "Meu Portfólio";
+    <?php
 
-        //1° projeto escrito em php e html
-        $projeto = "Meu Portfólio";
-        $dataDoProjeto = "2022-03-02";
-        $finalizado = true;
-        $descricao = "Meu primeiro projeto escrito em PHP e HTML";
+    $projetos = [
+        [
+            "titulo" => "Meu Portfólio",
+            "ano" => 2025,
+            "data" => "2025-03-02",
+            "finalizado" => true,
+            "descricao" => "Meu primeiro projeto escrito em PHP e HTML"
+        ],
+        [
+            "titulo" => "Projeto 2",
+            "ano" => 2025,
+            "data" => "2025-03-02",
+            "finalizado" => false,
+            "descricao" => "Meu primeiro projeto escrito em PHP e HTML"
+        ],
+        [
+            "titulo" => "Projeto 3",
+            "ano" => 2025,
+            "data" => "2025-03-02",
+            "finalizado" => false,
+            "descricao" => "Meu primeiro projeto escrito em PHP e HTML"
+        ]
+    ];
     ?>
-   
-    <h1>
-        <?= $saudacao; ?>
-    </h1>
-    <h2>
-        <?= $titulo . "<br>"; ?> 
-        <?= $ano; ?> 
-    </h2>
 
-    <hr>
+    <?php foreach ($projetos as $projeto): ?>
+        <div
+            <?php if (($projeto["ano"] - 1994) > 30) : ?>
+            style="background-color:rgb(141, 208, 234);"
+            <?php endif; ?>>
+            <h2><?= $projeto["titulo"]; ?></h2>
+            <p><?= $projeto["descricao"]; ?></p>
 
-    <div
-        <?php  if(($ano - 1994) > 30) : ?>
-            style="background-color: red;"
-        <?php endif; ?>
-    >
-        <h2><?= $tituloProjeto; ?></h2>
-        <p><?= $descricao; ?></p>
-
-        <div>
-            <?= $dataDoProjeto; ?>
+            <div>
+                <?= $projeto["data"]; ?>
+            </div>
+            <div>
+                <?php if ($projeto["finalizado"]): ?>
+                    <span class="green">Finalizado ✅</span>
+                <?php else: ?>
+                    <span class="red">Não finalizado ⛔</span>
+                <?php endif; ?>
+            </div>
         </div>
-        <div>
-            <?php if(!$finalizado): ?>
-                <span class="green">Finalizado ✅</span>
-            <?php else: ?>
-               <span class="red">Não finalizado ⛔</span> 
-            <?php endif; ?>
-        </div>
-    </div>
+    <?php endforeach; ?>
 </body>
+
 </html>
