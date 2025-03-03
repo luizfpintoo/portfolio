@@ -43,21 +43,21 @@
         ],
         [
             "titulo" => "Chat em Tempo Real",
-            "ano" => 2025,
+            "ano" => 2027,
             "data" => "2025-03-05",
             "finalizado" => false,
             "descricao" => "Um chat online utilizando PHP, JavaScript e WebSocket para mensagens instantâneas"
         ],
         [
             "titulo" => "Blog com Painel Administrativo",
-            "ano" => 2025,
+            "ano" => 2026,
             "data" => "2025-03-06",
             "finalizado" => false,
             "descricao" => "Um blog com interface de postagem e painel para o administrador"
         ],
         [
             "titulo" => "Sistema de Controle de Estoque",
-            "ano" => 2025,
+            "ano" => 2022,
             "data" => "2025-03-07",
             "finalizado" => true,
             "descricao" => "Aplicativo que gerencia entradas e saídas de produtos com relatórios detalhados"
@@ -74,28 +74,13 @@
         }
     }
 
-    function filtrarProjetos($projetos, $finalizado = null)
-    {
-
-        if (is_null($finalizado)) {
-            return $projetos;
-        }
-
-        $filtrados = [];
-
-        foreach ($projetos as $projeto) {
-            if (! is_null($finalizado) && $projeto["finalizado"]) {
-                $filtrados[] = $projeto;
-            }
-        }
-
-        return $filtrados;
-    }
-
+    $projetosFiltrados = array_filter($projetos, function ($projeto) {
+        return $projeto["ano"] > 2025;
+    });
 
     ?>
 
-    <?php foreach (filtrarProjetos($projetos, true) as $projeto): ?>
+    <?php foreach ($projetosFiltrados as $projeto): ?>
         <div
             <?php if (($projeto["ano"] - 1994) > 30) : ?>
             style="background-color:rgb(141, 208, 234);"
