@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-slate-900 text-white">
-    <?php include("./componetes/header.php"); ?>
+    <?php include("./componentes/header.php"); ?>
 
     <main class="mx-auto max-w-5xl px-3 py-3 mt-30">
         <section class="flex gap-x-3 items-center" data-aos="fade-down" data-aos-delay="100">
@@ -34,11 +34,11 @@
                 <h2 class="text-2xl font-semibold mb-4">Meus Projetos</h2>
             </div>
 
-            <?php include("./componetes/projetos.php"); ?>
+            <?php include("./componentes/projetos.php"); ?>
         </section>
     </main>
 
-    <?php include("./componetes/footer.php"); ?>
+    <?php include("./componentes/footer.php"); ?>
 
     <script src="./assets/js/index.js"></script>
 </body>
